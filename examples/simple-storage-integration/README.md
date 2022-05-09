@@ -1,8 +1,29 @@
-# Snowflake Storage Integration Terraform Module
+# Simple Storage Integration
 
-Terraform module which creates storage integration resources on Snowflake.
+## Pre-requisites
 
-## Examples
+On the AWS account create a bucket for the storage integration and the role that can access this bucket
+For this you can follow Snowflake instructions on: 
+https://docs.snowflake.com/en/user-guide/data-load-s3-config-storage-integration.html
+Please note that creating the storage integration on Snowflake manually,
+is required only once per account in order to have the following parameters:
+STORAGE_AWS_IAM_USER_ARN =	arn:aws:iam::...
+STORAGE_AWS_EXTERNAL_ID	= ...
+If you already created a Storage Integration once, you can describe it in order to capture these values:
+DESC INTEGRATION <your storage integration name>;
+
+## Usage
+
+To run this example you need to execute:
+
+```bash
+$ terraform init
+$ terraform plan
+$ terraform apply
+```
+
+ Run `terraform destroy` when you don't need the user.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -51,8 +72,5 @@ No modules.
 No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## Authors
-
-## License
-
-Apache 2 Licensed. See [LICENSE](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/LICENSE) for full details.
+You can test the creation with the following snowflake command:
+SHOW INTEGRATIONS;
