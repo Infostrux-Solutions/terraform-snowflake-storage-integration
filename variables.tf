@@ -1,6 +1,6 @@
 variable "storage_integration_name" {
   type        = string
-  description = "Name for the storage integration. Integration name must be unique for the account."
+  description = "Name for the storage integration. Integration name must be upper cases and unique for the account."
 }
 
 
@@ -36,7 +36,7 @@ variable "storage_aws_role_arn" {
 
 variable "storage_allowed_locations" {
   type        = set(string)
-  description = "Storage integration allowed buckets."
+  description = "Storage integration allowed buckets (bucket names)."
   default     = []
 }
 

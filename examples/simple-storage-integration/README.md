@@ -5,12 +5,16 @@
 On the AWS account create a bucket for the storage integration and the role that can access this bucket
 For this you can follow Snowflake instructions on: 
 https://docs.snowflake.com/en/user-guide/data-load-s3-config-storage-integration.html
-Please note that creating the storage integration on Snowflake manually,
-is required only once per account in order to have the following parameters:
+
+After applying the terraform, note the 2 following params:
 STORAGE_AWS_IAM_USER_ARN =	arn:aws:iam::...
 STORAGE_AWS_EXTERNAL_ID	= ...
-If you already created a Storage Integration once, you can describe it in order to capture these values:
+
+You can also get them by the snowflake command
 DESC INTEGRATION <your storage integration name>;
+
+Go and update the Trust relationship on your AWS role
+(details can be found on https://docs.snowflake.com/en/user-guide/data-load-s3-config-storage-integration.html)
 
 ## Usage
 
