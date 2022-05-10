@@ -1,11 +1,9 @@
-# Snowflake Storage Integration Terraform Module
-
-Terraform module which creates storage integration resources on Snowflake.
+# Simple Storage Integration
 
 ## Pre-requisites
 
 On the AWS account create a bucket for the storage integration and the role that can access this bucket
-For this you can follow Snowflake instructions on:
+For this you can follow Snowflake instructions on: 
 https://docs.snowflake.com/en/user-guide/data-load-s3-config-storage-integration.html
 
 After applying the terraform, note the 2 following params:
@@ -18,8 +16,18 @@ DESC INTEGRATION <your storage integration name>;
 Go and update the Trust relationship on your AWS role
 (details can be found on https://docs.snowflake.com/en/user-guide/data-load-s3-config-storage-integration.html)
 
+## Usage
 
-## Examples
+To run this example you need to execute:
+
+```bash
+$ terraform init
+$ terraform plan
+$ terraform apply
+```
+
+ Run `terraform destroy` when you don't need the user.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -78,10 +86,8 @@ No modules.
 | <a name="output_storage_provider"></a> [storage\_provider](#output\_storage\_provider) | The Storage integration provider. |
 | <a name="output_type"></a> [type](#output\_type) | The type of the Storage integration. |
 | <a name="output_with_grant_option"></a> [with\_grant\_option](#output\_with\_grant\_option) | When this is set to true, allows the recipient role to grant the privileges to other roles. |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
-## Authors
-The module is maintained by @eyloninfostrux with the help of @mvanzanten  and @charlesInfostrux 
-## License
-
-Apache 2 Licensed. See [LICENSE](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/LICENSE) for full details.
+You can test the creation with the following snowflake command:
+SHOW INTEGRATIONS;
