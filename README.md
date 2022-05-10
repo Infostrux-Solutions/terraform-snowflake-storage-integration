@@ -81,7 +81,7 @@ No modules.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Authors
-
+The module is maintained by @eyloninfostrux with the help of @mvanzanten  and @charlesInfostrux 
 ## License
 
 Apache 2 Licensed. See [LICENSE](https://github.com/terraform-aws-modules/terraform-aws-vpc/tree/master/LICENSE) for full details.
