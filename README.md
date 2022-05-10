@@ -48,7 +48,19 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_comment"></a> [comment](#output\_comment) | The comment for the Storage integration. |
+| <a name="output_enabled"></a> [enabled](#output\_enabled) | The enable status for the Storage integration. |
+| <a name="output_privilege"></a> [privilege](#output\_privilege) | The privilege to grant on the integration. |
+| <a name="output_roles"></a> [roles](#output\_roles) | Grants privilege to these roles. |
+| <a name="output_storage_allowed_locations"></a> [storage\_allowed\_locations](#output\_storage\_allowed\_locations) | Storage integration allowed buckets. |
+| <a name="output_storage_aws_role_arn"></a> [storage\_aws\_role\_arn](#output\_storage\_aws\_role\_arn) | The Snowflake user that will attempt to assume the AWS role. |
+| <a name="output_storage_id"></a> [storage\_id](#output\_storage\_id) | The Storage integration ID. |
+| <a name="output_storage_integration_name"></a> [storage\_integration\_name](#output\_storage\_integration\_name) | The Storage integration name. |
+| <a name="output_storage_provider"></a> [storage\_provider](#output\_storage\_provider) | The Storage integration provider. |
+| <a name="output_type"></a> [type](#output\_type) | The type of the Storage integration. |
+| <a name="output_with_grant_option"></a> [with\_grant\_option](#output\_with\_grant\_option) | When this is set to true, allows the recipient role to grant the privileges to other roles. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Authors
