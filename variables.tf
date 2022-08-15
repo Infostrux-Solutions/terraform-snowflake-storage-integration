@@ -41,8 +41,9 @@ variable "storage_allowed_locations" {
 }
 
 variable "seconds_to_wait_before_integration_is_ready" {
-  type    = string
-  default = "10s"
+  type        = string
+  description = "Time to wait before integration is ready"
+  default     = "10s"
 }
 
 variable "privilege" {
