@@ -22,14 +22,14 @@ module "storage_integration" {
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
 | <a name="requirement_snowflake"></a> [snowflake](#requirement\_snowflake) | >= 0.40.0 |
-| <a name="requirement_time"></a> [time](#requirement\_time) | 0.8.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | 0.41.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.8.0 |
+| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | >= 0.40.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.9.0 |
 
 ## Modules
 
@@ -41,7 +41,7 @@ No modules.
 |------|------|
 | [snowflake_integration_grant.storage_integration_grant](https://registry.terraform.io/providers/Snowflake-Labs/snowflake/latest/docs/resources/integration_grant) | resource |
 | [snowflake_storage_integration.storage_integration](https://registry.terraform.io/providers/Snowflake-Labs/snowflake/latest/docs/resources/storage_integration) | resource |
-| [time_sleep.wait_until_integration_is_ready](https://registry.terraform.io/providers/hashicorp/time/0.8.0/docs/resources/sleep) | resource |
+| [time_sleep.wait_until_integration_is_ready](https://registry.terraform.io/providers/hashicorp/time/0.9.0/docs/resources/sleep) | resource |
 
 ## Inputs
 
