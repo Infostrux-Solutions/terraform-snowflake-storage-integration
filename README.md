@@ -15,7 +15,7 @@ module "storage_integration" {
 }
 ```
 
-<!-- BEGIN_TF_DOCS  -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
