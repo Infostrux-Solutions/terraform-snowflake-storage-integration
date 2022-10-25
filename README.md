@@ -7,7 +7,7 @@ Terraform module which creates storage integration resources on Snowflake.
 
 ```hcl
 module "storage_integration" {
-  source                    = "../../"
+  source                    = "Infostrux-Solutions/storage-integration/snowflake"
   storage_integration_name  = "STORAGE_INTEGRATION_EXAMPLE"
   storage_aws_role_arn      = "arn:aws:iam::{account-id}:role/test-snowflake-storage-integration-role"
   storage_allowed_locations = ["test-snowflake-storage-integration"]
