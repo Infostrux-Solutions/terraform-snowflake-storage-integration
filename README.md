@@ -2,39 +2,34 @@
 
 Terraform module which creates storage integration resources on Snowflake.
 
-## Pre-requisites
 
-On the AWS account create a bucket for the storage integration and the role that can access this bucket
-For this you can follow Snowflake instructions on:
-https://docs.snowflake.com/en/user-guide/data-load-s3-config-storage-integration.html
+## Usage
 
-After applying the terraform, note the 2 following params:
-STORAGE_AWS_IAM_USER_ARN =	arn:aws:iam::...
-STORAGE_AWS_EXTERNAL_ID	= ...
+```hcl
+module "storage_integration" {
+  source                    = "Infostrux-Solutions/storage-integration/snowflake"
+  storage_integration_name  = "STORAGE_INTEGRATION_EXAMPLE"
+  storage_aws_role_arn      = "arn:aws:iam::{account-id}:role/test-snowflake-storage-integration-role"
+  storage_allowed_locations = ["test-snowflake-storage-integration"]
+  roles                     = ["SYSADMIN", "ACCOUNTADMIN"]
+}
+```
 
-You can also get them by the snowflake command
-DESC INTEGRATION <your storage integration name>;
-
-Go and update the Trust relationship on your AWS role
-(details can be found on https://docs.snowflake.com/en/user-guide/data-load-s3-config-storage-integration.html)
-
-
-## Examples
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
 | <a name="requirement_snowflake"></a> [snowflake](#requirement\_snowflake) | >= 0.40.0 |
-| <a name="requirement_time"></a> [time](#requirement\_time) | 0.8.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | 0.41.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.8.0 |
+| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | >= 0.40.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.9.0 |
 
 ## Modules
 
@@ -46,7 +41,7 @@ No modules.
 |------|------|
 | [snowflake_integration_grant.storage_integration_grant](https://registry.terraform.io/providers/Snowflake-Labs/snowflake/latest/docs/resources/integration_grant) | resource |
 | [snowflake_storage_integration.storage_integration](https://registry.terraform.io/providers/Snowflake-Labs/snowflake/latest/docs/resources/storage_integration) | resource |
-| [time_sleep.wait_until_integration_is_ready](https://registry.terraform.io/providers/hashicorp/time/0.8.0/docs/resources/sleep) | resource |
+| [time_sleep.wait_until_integration_is_ready](https://registry.terraform.io/providers/hashicorp/time/0.9.0/docs/resources/sleep) | resource |
 
 ## Inputs
 
@@ -79,10 +74,10 @@ No modules.
 | <a name="output_storage_provider"></a> [storage\_provider](#output\_storage\_provider) | The Storage integration provider. |
 | <a name="output_type"></a> [type](#output\_type) | The type of the Storage integration. |
 | <a name="output_with_grant_option"></a> [with\_grant\_option](#output\_with\_grant\_option) | When this is set to true, allows the recipient role to grant the privileges to other roles. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
 
 ## Authors
-The module is maintained by [Infostrux Solutions](mailto:opensource@infostrux.com)
+The module is maintained by [Infostrux Solutions](mailto:opensource@infostrux.com) with help from [these awesome contributors](https://github.com/Infostrux-Solutions/terraform-snowflake-storage-integration/graphs/contributors).
 
 ## License
 
