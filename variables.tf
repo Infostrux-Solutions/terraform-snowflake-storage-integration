@@ -22,10 +22,20 @@ variable "type" {
   default     = "EXTERNAL_STAGE"
 }
 
-variable "storage_provider" {
+variable "azure_tentant_id" {
   type        = string
-  description = "The provider for the storage integration."
-  default     = "S3"
+  description = "Azure tentant IDs"
+  default     = null
+}
+
+variable "storage_provider" {
+  type           = string
+  description    = "The provider for the storage integration."
+  default        = "S3"
+  validation {
+    condition = contains(["S3", "AZURE"], var.storage_provider)
+    error_message = "Invalid storage_provider, possible values are : S3, AZURE"
+  } 
 }
 
 variable "storage_aws_role_arn" {

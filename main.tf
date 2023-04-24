@@ -6,10 +6,12 @@ resource "snowflake_storage_integration" "storage_integration" {
   enabled = var.enabled
 
   storage_provider     = var.storage_provider
-  storage_aws_role_arn = var.storage_aws_role_arn
+  storage_aws_role_arn = var.storage_provider == "S3" ? var.storage_aws_role_arn : null
+  azure_tenant_id      = var.storage_provider == "AZURE" ? var.azure_tentant_id : null
+
   storage_allowed_locations = [
     for bucket in var.storage_allowed_locations :
-    "s3://${bucket}/"
+      get_storage_allowed_location_path(var.storage_provider, bucket)
   ]
 }
 
