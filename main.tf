@@ -11,7 +11,7 @@ resource "snowflake_storage_integration" "storage_integration" {
 
   storage_allowed_locations = [
     for bucket in var.storage_allowed_locations :
-      get_storage_allowed_location_path(var.storage_provider, bucket)
+    get_storage_allowed_location_path(var.storage_provider, bucket)
   ]
 }
 

@@ -29,13 +29,13 @@ variable "azure_tentant_id" {
 }
 
 variable "storage_provider" {
-  type           = string
-  description    = "The provider for the storage integration."
-  default        = "S3"
+  type        = string
+  description = "The provider for the storage integration."
+  default     = "S3"
   validation {
-    condition = contains(["S3", "AZURE"], var.storage_provider)
+    condition     = contains(["S3", "AZURE"], var.storage_provider)
     error_message = "Invalid storage_provider, possible values are : S3, AZURE"
-  } 
+  }
 }
 
 variable "storage_aws_role_arn" {
