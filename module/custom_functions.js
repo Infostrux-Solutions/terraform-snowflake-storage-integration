@@ -1,4 +1,4 @@
-function get_storage_allowed_location_path(storage_provider,storage_allowed_location) {
+function get_cloud_storage_path(storage_provider,storage_allowed_location) {
   cloud_path_location = null
   storage_provider = storage_provider.toLowerCase()
   storage_allowed_location = storage_allowed_location

@@ -11,8 +11,9 @@ resource "snowflake_storage_integration" "storage_integration" {
 
   storage_allowed_locations = [
     for bucket in var.storage_allowed_locations :
-    get_storage_allowed_location_path(var.storage_provider, bucket)
+    var.storage_provider == "S3" ? "s3://${bucket}/" : "azure://${bucket}.blob.core.windows.net/"
   ]
+  # storage_allowed_locations =  module.custom_functions.get_cloud_storage_path(var.storage_provider)
 }
 
 # Terraform move the storage integration to ready to early
